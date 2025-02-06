@@ -69,4 +69,10 @@ for x = -radius, radius-1 do
     end
 end
 
+local count = 0
+for _, chunk in World.Chunks do
+    count += chunk:CountBlocks()
+end
+print(`There are {count} blocks in the world!`)
+
 return World

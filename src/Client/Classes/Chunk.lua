@@ -47,6 +47,15 @@ function Chunk.GetWorldPosition(chunkPosition: Vector3): Vector3
     )
 end
 
+function Chunk:CountBlocks()
+    local count = 0
+    for _, blockId in self.BlockData do
+        if blockId == 0 then continue end
+        count += 1
+    end
+    return count
+end
+
 function Chunk:BlockIndexToWorldPosition(blockIndex: number): Vector3
     local blockPositionOffset = Vector3.new(
         math.floor((blockIndex - 1) / math.pow(Chunk.BlockSize, 2)),
